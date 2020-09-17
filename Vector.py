@@ -44,7 +44,7 @@ class VectorCartesiano:
         
 ########################################################################################################################
 
-#Para un caso externo fue de mayor comodidad hallar las componentes esféricas de vectores, osea que dado un vector (x,y,z) en la base cartesiana se hallaría otro vector en la misma base con componente (r,theta,phi)
+#Para un caso externo fue de mayor comodidad hallar las componentes esféricas de vectores, osea que dado un vector (x,y,z) en la base cartesiana se hallaría otro vector en la misma base con componente (r,theta,phi), se tomaron los casos posibles, pueden existir más pero no todos pasaron por mi mente
     def cartesianoapolar(self):
         from math import acos,atan,pi,copysign
         
@@ -63,6 +63,10 @@ class VectorCartesiano:
         elif self.x == 0 and self.y == 0 and self.z == 0:#dado el vector nulo se envia al vector nulo
 
             return VectorCartesiano(0,0,0)
+        
+        elif self.x != 0 and self.y == 0:
+           
+            return VectorCartesiano(self.magnitud,acos(self.z/self.magnitud),0)
         
         else:
             
