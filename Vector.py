@@ -46,19 +46,27 @@ class VectorCartesiano:
 
 #Para un caso externo fue de mayor comodidad hallar las componentes esféricas de vectores, osea que dado un vector (x,y,z) en la base cartesiana se hallaría otro vector en la misma base con componente (r,theta,phi)
     def cartesianoapolar(self):
-        from math import acos,atan,pi
+        from math import acos,atan,pi,copysign
         
         if  self.x == 0:#en el caso que x=0 se usa un valor ya conocido thetha
 
-            return VectorCartesiano(self.magnitud,acos(self.z/self.magnitud),pi*0.5)
+            return VectorCartesiano(self.magnitud,acos(self.z/self.magnitud),copysign(pi*0.5,self.y))
         
+        elif self.x > 0 and self.y > 0 :
+
+            return VectorCartesiano(self.magnitud,acos(self.z/self.magnitud),atan(self.y/self.x))
+
+        elif self.x > 0 and self.y < 0 :
+
+            return VectorCartesiano(self.magnitud,acos(self.z/self.magnitud),atan(self.y/self.x) + 2*pi)
+
         elif self.x == 0 and self.y == 0 and self.z == 0:#dado el vector nulo se envia al vector nulo
 
             return VectorCartesiano(0,0,0)
-
+        
         else:
             
-            return VectorCartesiano(self.magnitud,acos(self.z/self.magnitud),atan(self.y/self.x))
+            return VectorCartesiano(self.magnitud,acos(self.z/self.magnitud),atan(self.y/self.x) + pi)
 ########################################################################################################################        
 
 #Por ultimo se crea un método que permite calcular el angulo entre dos vectores cartesianos
