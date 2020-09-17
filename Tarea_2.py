@@ -2,7 +2,7 @@
 # coding: utf-8
 
 import Vector #Se importa como modulo a las clases creadas en "Vector.py"
-from math import acos,atan,sin,cos,pi#Cuando se hizo la prueba en un mismo notebook hay errores debido a la falta de importar estas librerías cosa que no pasa cuando se usa import Vector, para que no aparezca dicho fallo se importan pero no se espera que sea necesario
+from math import acos,atan,sin,cos,pi,copysign#Cuando se hizo la prueba en un mismo notebook hay errores debido a la falta de importar estas librerías cosa que no pasa cuando se usa import Vector, para que no aparezca dicho fallo se importan pero no se espera que sea necesario
 
 ########Vectores pedidos############################
 a=Vector.VectorCartesiano(1.5,0,2.4)
